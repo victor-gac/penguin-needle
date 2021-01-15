@@ -45,6 +45,11 @@ void* find_library(pid_t pid, const char* libname) {
   return NULL;
 }
 
+void quit(char* error) {
+   perror(error);
+   exit(1);
+}
+
 void poke_chunk(pid_t target, void* addr, void* src, size_t size) {
    uint8_t data;
    size_t i = 0;
@@ -64,11 +69,6 @@ void peek_chunk(pid_t target, void* addr, void* dest, size_t size) {
          quit("PTRACE_PEEKTEXT");
       memcpy(dest + i, &data, sizeof(data));
    }
-}
-
-void quit(char* error) {
-   perror(error);
-   exit(1);
 }
 
 int main(int argc, char** argv) {

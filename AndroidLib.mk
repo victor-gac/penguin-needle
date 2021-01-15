@@ -19,6 +19,6 @@ include $(CLEAR_VARS)
 LOCAL_MODULE    := libname 
 LOCAL_SRC_FILES := sample-library.c
 LOCAL_CFLAGS += -fPIC
-LOCAL_SHARED_LIBRARIES := dl
+# LOCAL_SHARED_LIBRARIES := ldl
 
 include $(BUILD_SHARED_LIBRARY)
